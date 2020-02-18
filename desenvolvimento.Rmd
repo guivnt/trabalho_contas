@@ -1,0 +1,33 @@
+---
+title: "Países colonizados são mais pobres?"
+author: "Guilherme Ventura"
+date: "18/02/2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+Bibliotecas
+```{r echo=FALSE}
+install.packages("pacman")
+library(pacman)
+
+p_load(readxl)
+```
+
+
+Dados de colonização tirados do CEPII
+```{r}
+colonizados <- read_excel("dados/geo_cepii.xls")
+pobreza <-  read.csv("dados/Multidimensional poverty index (MPI).csv")
+idh <- read.csv("dados/Human Development Index (HDI).csv")
+```
+
+Tratando dados
+```{r}
+
+
+```
+

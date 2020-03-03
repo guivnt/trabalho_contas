@@ -14,7 +14,7 @@ Bibliotecas
 install.packages("pacman")
 library(pacman)
 
-p_load(readxl)
+p_load(readxl, tidyverse)
 ```
 
 
@@ -26,7 +26,23 @@ idh <- read.csv("dados/Human Development Index (HDI).csv")
 ```
 
 Tratando dados
+Primeiramente os dados do CEPII
 ```{r}
+colonizados <- 
+  colonizados %>% 
+    select(iso3, country, continent, colonizer1, colonizer2, colonizer3, colonizer4, short_colonizer1) %>% 
+    rename(sigla = iso3, pais = country, continente = continent, colonizador_1 = colonizer1, colonizador_2 = colonizer2,
+           colonizador_3 = colonizer3, colonizador_4 = colonizer4, colonizacao_rapida = short_colonizer1)
+  
+colonizados$colonizador_1 = str_replace(colonizados$colonizador_1, ".", "") 
+colonizados$colonizador_2 = str_replace(colonizados$colonizador_2, ".", "") 
+colonizados$colonizador_3 = str_replace(colonizados$colonizador_3, ".", "") 
+colonizados$colonizador_4 = str_replace(colonizados$colonizador_4, ".", "")
+colonizados$colonizador_4 = str_replace(colonizados$colonizador_4, ".", "")
+colonizados$colonizacao_rapida = str_replace(colonizados$colonizacao_rapida, ".", "")
+
+
+
 
 
 ```
